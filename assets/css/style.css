@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  grid-area: menu;
+  background: #0037a1;
+  color: white;
+}
+
+.menu-pc ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  grid-area: buscar;
+  padding: 5px;
+  font-size: 20px;
+  background: grey;
+}
+
+.searchbox {
+  background: white;
+  border: 1px solid #979494;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  color: #747373;
+  padding: 5px;
+}
+
+main {
+  grid-area: seccion-principal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+.contenido {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.cardtt {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  border: solid 1px black;
+  background-color: snow;
+}
+
+.cardtt img {
+  width: 300px;
+  height: 400px;
+}
+
+.paginas {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+footer {
+  grid-area: pie-de-pagina;
+  display: flex;
+  flex-direction: column;
+  background: #13007c;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.contenedor {
+  display: grid;
+  border: 1px solid black;
+  grid-template-rows: 1fr 1fr 40fr 1fr;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  grid-template-areas:
+    "menu"
+    "buscar"
+    "seccion-principal"
+    "pie-de-pagina";
+}
+
+@media (min-width: 576px) {
+  .contenedor {
+    grid-template-areas:
+      "menu buscar"
+      "menu seccion-principal"
+      "pie-de-pagina seccion-principal";
+    grid-template-columns: 1fr 10fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    min-height: 100vh;
+  }
+
+  .contenido {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .ham {
+    display: none;
+  }
+
+  nav {
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  nav h1 {
+    font-size: 20px;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .menu-pc {
+    display: none;
+  }
+}
